@@ -42,7 +42,7 @@ body:
       description: "Direct download URL, HuggingFace path, or Kaggle dataset link"
       placeholder: "https://huggingface.co/datasets/isic2020"
     validations:
-      required: false
+      required: true
   - type: input
     id: licensing
     attributes:

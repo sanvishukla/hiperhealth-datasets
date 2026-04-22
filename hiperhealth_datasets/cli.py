@@ -81,7 +81,7 @@ def main():
             target_skill = get_str("Target Skill (e.g., skin) [Required]: ", required=True)
             source = get_str("Source (e.g., WHO) [Optional]: ", required=False)
             modality = get_str("Modality (e.g., dermoscopy images) [Optional]: ", required=False)
-            access_link = get_url("Access Link [Optional]: ", required=False)
+            access_link = get_url("Access Link [Required]: ", required=True)
             licensing = get_str("Licensing (e.g., CC BY 4.0) [Optional]: ", required=False)
             description = get_str("Description [Optional]: ", required=False)
             size = get_str("Size (e.g., 2GB, 3000 samples) [Optional]: ", required=False)
