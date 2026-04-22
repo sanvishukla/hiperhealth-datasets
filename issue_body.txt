@@ -1,0 +1,31 @@
+### Name
+
+ISIC
+
+### Source
+
+ISIC
+
+### Target Skill
+
+eye
+
+### Modality
+
+Images
+
+### Access Link
+
+https://challenge.isic-archive.com/data/#milk10k
+
+### Licensing
+
+2
+
+### Description
+
+NA
+
+### Size
+
+200
