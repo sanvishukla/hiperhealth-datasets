@@ -1,18 +1,18 @@
 ### Name
 
-ISIC
+sample
 
 ### Source
 
-ISIC
+sample
 
 ### Target Skill
 
-eye
+skin
 
 ### Modality
 
-Images
+_No response_
 
 ### Access Link
 
@@ -20,12 +20,12 @@ https://challenge.isic-archive.com/data/#milk10k
 
 ### Licensing
 
-2
+_No response_
 
 ### Description
 
-NA
+_No response_
 
 ### Size
 
-200
+_No response_
