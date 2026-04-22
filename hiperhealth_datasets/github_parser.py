@@ -33,6 +33,8 @@ def parse_issue_body(body: str) -> DatasetMetadata:
             # If the user leaves the default `_No response_` from github, handle it
             if value == "_No response_":
                 value = ""
+            if field_name == "access_link" and value == "":
+                value = None
             extracted_data[field_name] = value
 
     try:

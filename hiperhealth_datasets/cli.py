@@ -48,20 +48,48 @@ def main():
                 
     elif args.command == "add":
         print("Adding a new dataset. Please provide the following details:")
+        
+        def get_str(prompt_msg, required=False):
+            while True:
+                val = input(prompt_msg).strip()
+                if not val:
+                    if required:
+                        print("This field is required.", file=sys.stderr)
+                        continue
+                    return ""
+                return val
+
+        def get_url(prompt_msg, required=False):
+            from pydantic import BaseModel, HttpUrl
+            class Dummy(BaseModel):
+                url: HttpUrl
+            while True:
+                val = input(prompt_msg).strip()
+                if not val:
+                    if required:
+                        print("This field is required.", file=sys.stderr)
+                        continue
+                    return None
+                try:
+                    Dummy(url=val)
+                    return val
+                except ValidationError as e:
+                    print(f"Invalid URL: {e.errors()[0]['msg']}", file=sys.stderr)
+
         try:
-            name = input("Dataset Name (e.g., ISIC 2020): ").strip()
-            source = input("Source (e.g., WHO): ").strip()
-            target_skill = input("Target Skill (e.g., skin): ").strip()
-            modality = input("Modality (e.g., dermoscopy images): ").strip()
-            access_link = input("Access Link: ").strip()
-            licensing = input("Licensing (e.g., CC BY 4.0): ").strip()
-            description = input("Description: ").strip()
-            size = input("Size (e.g., 2GB, 3000 samples): ").strip()
+            name = get_str("Dataset Name (e.g., ISIC 2020) [Required]: ", required=True)
+            target_skill = get_str("Target Skill (e.g., skin) [Required]: ", required=True)
+            source = get_str("Source (e.g., WHO) [Optional]: ", required=False)
+            modality = get_str("Modality (e.g., dermoscopy images) [Optional]: ", required=False)
+            access_link = get_url("Access Link [Optional]: ", required=False)
+            licensing = get_str("Licensing (e.g., CC BY 4.0) [Optional]: ", required=False)
+            description = get_str("Description [Optional]: ", required=False)
+            size = get_str("Size (e.g., 2GB, 3000 samples) [Optional]: ", required=False)
             
             ds_data = {
                 "name": name,
-                "source": source,
                 "target_skill": target_skill,
+                "source": source,
                 "modality": modality,
                 "access_link": access_link,
                 "licensing": licensing,
@@ -71,9 +99,6 @@ def main():
             dataset = DatasetMetadata(**ds_data)
             filepath = add_dataset(dataset)
             print(f"\nSuccessfully added dataset at {filepath}")
-        except ValidationError as e:
-            print(f"\nValidation Error: {e}", file=sys.stderr)
-            sys.exit(1)
         except KeyboardInterrupt:
             print("\nOperation cancelled.")
             sys.exit(1)
