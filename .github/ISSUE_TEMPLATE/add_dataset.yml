@@ -1,0 +1,69 @@
+name: Submit a Dataset
+description: Add a new dataset to the HiperHealth datasets registry.
+title: "[Dataset]: "
+labels: ["dataset-submission"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: "Name"
+      description: "Name of the dataset (e.g., ISIC 2020)"
+      placeholder: "ISIC 2020"
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: "Source"
+      description: "Source of the dataset (e.g., WHO, specific hospital)"
+      placeholder: "International Skin Imaging Collaboration"
+    validations:
+      required: true
+  - type: input
+    id: target_skill
+    attributes:
+      label: "Target Skill"
+      description: "The clinical domain (e.g., skin, eye, ear, tongue)"
+      placeholder: "skin"
+    validations:
+      required: true
+  - type: input
+    id: modality
+    attributes:
+      label: "Modality"
+      description: "Data type (e.g., dermoscopy images, retina scans)"
+      placeholder: "dermoscopy images"
+    validations:
+      required: true
+  - type: input
+    id: access_link
+    attributes:
+      label: "Access Link"
+      description: "Direct download URL, HuggingFace path, or Kaggle dataset link"
+      placeholder: "https://huggingface.co/datasets/isic2020"
+    validations:
+      required: true
+  - type: input
+    id: licensing
+    attributes:
+      label: "Licensing"
+      description: "The open-source or usage license (e.g., MIT, CC BY 4.0, Non-commercial)"
+      placeholder: "CC BY 4.0"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "A brief summary of what the data contains"
+      placeholder: "A large collection of dermoscopic images of skin lesions for melanoma detection."
+    validations:
+      required: true
+  - type: input
+    id: size
+    attributes:
+      label: "Size"
+      description: "Approximate file size or number of samples"
+      placeholder: "33126 images, 15GB"
+    validations:
+      required: true

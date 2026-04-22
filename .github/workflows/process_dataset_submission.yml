@@ -1,0 +1,48 @@
+name: Process Dataset Submission
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  process-dataset:
+    if: contains(github.event.issue.labels.*.name, 'dataset-submission')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          pip install -e .
+
+      - name: Save Issue Body
+        run: |
+          echo "${{ github.event.issue.body }}" > issue_body.txt
+
+      - name: Parse and Add Dataset
+        id: parse_dataset
+        run: |
+          python -m hiperhealth_datasets.github_parser issue_body.txt
+
+      - name: Update README
+        run: |
+          hdatasets update-readme
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: "add-dataset-${{ github.event.issue.number }}"
+          title: "Add Dataset from Issue #${{ github.event.issue.number }}"
+          body: "Automated PR to add the dataset proposed in #${{ github.event.issue.number }}."
+          commit-message: "Add new dataset passing validation"
+          labels: "dataset"
