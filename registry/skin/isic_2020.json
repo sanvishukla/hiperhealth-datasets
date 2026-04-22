@@ -1,0 +1,10 @@
+{
+    "name": "ISIC 2020",
+    "source": "ISIC",
+    "target_skill": "skin",
+    "modality": "Dermoscopy images",
+    "access_link": "https://challenge.isic-archive.com/data/#2020",
+    "licensing": "",
+    "description": "",
+    "size": ""
+}

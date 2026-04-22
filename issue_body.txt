@@ -1,6 +1,6 @@
 ### Name
 
-ISIC
+ISIC 2020
 
 ### Source
 
@@ -8,24 +8,24 @@ ISIC
 
 ### Target Skill
 
-eye
+skin
 
 ### Modality
 
-Images
+Dermoscopy images
 
 ### Access Link
 
-https://challenge.isic-archive.com/data/#milk10k
+https://challenge.isic-archive.com/data/#2020
 
 ### Licensing
 
-2
+_No response_
 
 ### Description
 
-NA
+_No response_
 
 ### Size
 
-200
+_No response_
