@@ -46,12 +46,6 @@ This registry ships with the `hdatasets` CLI for easy local management.
 
 <!-- DATASETS_START -->
 
-### Eye
-
-| Name | Source | Modality | Size | License | Link |
-|---|---|---|---|---|---|
-| ISIC | ISIC | Images | 200 | 2 | [Link](https://challenge.isic-archive.com/data/#milk10k) |
-
 ### Skin
 
 | Name | Source | Modality | Size | License | Link |
