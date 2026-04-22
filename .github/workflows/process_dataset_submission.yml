@@ -6,7 +6,7 @@ on:
 
 jobs:
   process-dataset:
-    if: contains(github.event.issue.labels.*.name, 'dataset-submission')
+    if: startsWith(github.event.issue.title, '[Dataset]:')
     runs-on: ubuntu-latest
     permissions:
       contents: write
