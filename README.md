@@ -51,6 +51,7 @@ This registry ships with the `hdatasets` CLI for easy local management.
 | Name | Source | Modality | Size | License | Link |
 |---|---|---|---|---|---|
 | ISIC MILK10K | ISIC | Dermoscopy Images | 10k+ images, 5240 lesions |  | [Link](https://challenge.isic-archive.com/data/#milk10k) |
+| sample | sample |  |  |  | [Link](https://challenge.isic-archive.com/data/#milk10k) |
 
 <!-- DATASETS_END -->
 
